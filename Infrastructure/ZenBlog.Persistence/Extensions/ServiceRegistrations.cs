@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ZenBlog.Application.Contracts.Persistence;
+using ZenBlog.Persistence.Concrete;
 using ZenBlog.Persistence.Context;
 
 namespace ZenBlog.Persistence.Extensions
@@ -14,6 +16,11 @@ namespace ZenBlog.Persistence.Extensions
             {
                 options.UseSqlServer(configuration.GetConnectionString("SqlConnection"));
             });
+
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
         }
 
 
