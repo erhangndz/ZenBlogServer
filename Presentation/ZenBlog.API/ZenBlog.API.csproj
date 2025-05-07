@@ -13,11 +13,16 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Scalar.AspNetCore" Version="2.2.7" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\ZenBlog.Application\ZenBlog.Application.csproj" />
     <ProjectReference Include="..\..\Infrastructure\ZenBlog.Persistence\ZenBlog.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>

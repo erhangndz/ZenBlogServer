@@ -1,4 +1,6 @@
-﻿namespace ZenBlog.Application.Base;
+﻿using System.Text.Json.Serialization;
+
+namespace ZenBlog.Application.Base;
 
 public class BaseResult<T>
 {
@@ -6,8 +8,10 @@ public class BaseResult<T>
 
     public IEnumerable<Error>? Errors { get; set; }
 
+    [JsonIgnore]
     public bool IsSuccess => Errors==null || !Errors.Any();
 
+    [JsonIgnore]
     public bool IsFailure => !IsSuccess;
 
 
