@@ -34,6 +34,14 @@ namespace ZenBlog.API.Endpoints
 
                 });
 
+
+            categories.MapPut(string.Empty,
+                async (UpdateCategoryCommand command, IMediator mediator) =>
+                {
+                    var response = await mediator.Send(command);
+                    return response.IsSuccess ? Results.Ok(response) : Results.BadRequest(response);
+                });
+
         }
 
     }
