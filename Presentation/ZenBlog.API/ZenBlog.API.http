@@ -1,6 +1,4 @@
 @ZenBlog.API_HostAddress = http://localhost:5032
 
-GET {{ZenBlog.API_HostAddress}}/weatherforecast/
-Accept: application/json
 
 ###

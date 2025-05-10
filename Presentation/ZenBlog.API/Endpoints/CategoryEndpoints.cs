@@ -42,6 +42,13 @@ namespace ZenBlog.API.Endpoints
                     return response.IsSuccess ? Results.Ok(response) : Results.BadRequest(response);
                 });
 
+            categories.MapDelete("{id}",
+                async (Guid id, IMediator mediator) =>
+                {
+                    var response = await mediator.Send(new RemoveCategoryCommand(id));
+                    return response.IsSuccess ? Results.Ok(response) : Results.BadRequest(response);
+                });
+
         }
 
     }
