@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using ZenBlog.Application.Features.Blogs.Commands;
 using ZenBlog.Application.Features.Blogs.Queries;
 
 namespace ZenBlog.API.Endpoints
@@ -17,6 +18,14 @@ namespace ZenBlog.API.Endpoints
 
                     return response.IsSuccess ? Results.Ok(response) : Results.BadRequest(response);
                 });
+
+
+            blogs.MapPost(string.Empty, async (CreateBlogCommand command,IMediator mediator) =>
+            {
+                var response = await mediator.Send(command);
+
+                return response.IsSuccess ? Results.Ok(response) : Results.BadRequest(response);
+            });
         }
     }
 }
