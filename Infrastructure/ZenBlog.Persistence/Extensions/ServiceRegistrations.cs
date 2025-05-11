@@ -21,7 +21,7 @@ namespace ZenBlog.Persistence.Extensions
                 options.UseLazyLoadingProxies();
             });
 
-            services.AddIdentity<AppUser, AppRole>(options =>
+            services.AddIdentity<AppUser,AppRole>(options =>
             {
                 options.User.RequireUniqueEmail = true;
             }).AddEntityFrameworkStores<AppDbContext>();

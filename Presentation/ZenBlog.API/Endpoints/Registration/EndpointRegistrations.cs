@@ -7,6 +7,7 @@
         {
             app.RegisterCategoryEndpoints();
             app.RegisterBlogEndpoints();
+            app.RegisterUserEndpoints();
             
         }
     }

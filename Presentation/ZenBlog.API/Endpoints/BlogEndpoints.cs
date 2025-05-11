@@ -11,9 +11,9 @@ namespace ZenBlog.API.Endpoints
             var blogs = app.MapGroup("/blogs").WithTags("Blogs");
 
             blogs.MapGet(string.Empty,
-                async (IMediator _mediator) =>
+                async (IMediator mediator) =>
                 {
-                    var response = await _mediator.Send(new GetBlogsQuery());
+                    var response = await mediator.Send(new GetBlogsQuery());
 
                     return response.IsSuccess ? Results.Ok(response) : Results.BadRequest(response);
                 });

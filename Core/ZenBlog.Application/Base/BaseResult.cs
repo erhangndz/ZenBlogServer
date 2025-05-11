@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Identity;
 
 namespace ZenBlog.Application.Base;
 
@@ -36,6 +37,15 @@ public class BaseResult<T>
         return new BaseResult<T>
         {
             Errors = [new Error { ErrorMessage = "an Unexpected Error Occured" }]
+        };
+    }
+
+    public static BaseResult<T> Fail(IEnumerable<IdentityError> errors)
+    {
+        return new BaseResult<T>
+        {
+            Errors = (from error in errors
+                select new Error { PropertyName = error.Code, ErrorMessage = error.Description})
         };
     }
 
