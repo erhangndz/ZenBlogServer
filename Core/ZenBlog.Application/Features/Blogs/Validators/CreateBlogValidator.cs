@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentValidation;
+﻿using FluentValidation;
 using ZenBlog.Application.Features.Blogs.Commands;
 
 namespace ZenBlog.Application.Features.Blogs.Validators
 {
-    public class CreateBlogValidator: AbstractValidator<CreateBlogCommand>
+    public class CreateBlogValidator : AbstractValidator<CreateBlogCommand>
     {
         public CreateBlogValidator()
         {
@@ -18,6 +13,8 @@ namespace ZenBlog.Application.Features.Blogs.Validators
             RuleFor(x => x.BlogImage).NotEmpty().WithMessage("Blog Image is required");
             RuleFor(x => x.CategoryId).NotEmpty().WithMessage("Category is required");
             RuleFor(x => x.UserId).NotEmpty().WithMessage("User is required");
+
+
         }
     }
 }

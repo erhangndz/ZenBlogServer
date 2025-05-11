@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using ZenBlog.Application.Features.Blogs.Commands;
 using ZenBlog.Application.Features.Blogs.Queries;
 
@@ -20,12 +21,20 @@ namespace ZenBlog.API.Endpoints
                 });
 
 
-            blogs.MapPost(string.Empty, async (CreateBlogCommand command,IMediator mediator) =>
+            blogs.MapPost(string.Empty, 
+                async (CreateBlogCommand command,IMediator mediator) =>
             {
                 var response = await mediator.Send(command);
 
                 return response.IsSuccess ? Results.Ok(response) : Results.BadRequest(response);
             });
+
+            blogs.MapGet("{id}",
+                async (Guid id, IMediator mediator) =>
+                {
+                    var response = await mediator.Send(new GetBlogByIdQuery(id));
+                    return response.IsSuccess ? Results.Ok(response) : Results.BadRequest(response);
+                });
         }
     }
 }
