@@ -12,5 +12,7 @@ namespace ZenBlog.Application.Features.Blogs.Commands
         public string Description { get; set; }
         public Guid CategoryId { get; set; }
         public string UserId { get; set; }
+
+        
     }
 }

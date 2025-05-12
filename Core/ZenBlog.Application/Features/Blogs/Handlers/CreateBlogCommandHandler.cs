@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
 using ZenBlog.Application.Base;
 using ZenBlog.Application.Contracts.Persistence;
@@ -21,5 +16,7 @@ namespace ZenBlog.Application.Features.Blogs.Handlers
             await unitOfWork.SaveChangesAsync();
             return BaseResult<object>.Success(blog);
         }
+
+     
     }
 }

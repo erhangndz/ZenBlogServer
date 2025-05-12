@@ -8,7 +8,8 @@ namespace ZenBlog.Application.Features.Categories.Validators
         public CreateCategoryValidator()
         {
             RuleFor(x => x.CategoryName).NotEmpty().WithMessage("Category Name is required")
-                .MinimumLength(3).WithMessage("Category Name must be at least 3 characters");
+                .MinimumLength(3).WithMessage("Category Name must be at least 3 characters")
+                .MaximumLength(50).WithMessage("Category Name must be maximum 50 characters");
         }
     }
 }
