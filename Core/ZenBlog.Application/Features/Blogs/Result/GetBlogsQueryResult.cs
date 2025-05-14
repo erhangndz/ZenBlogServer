@@ -1,8 +1,8 @@
 ﻿using ZenBlog.Application.Base;
-using ZenBlog.Application.Features.Categories.Results;
+using ZenBlog.Application.Features.Categories.Result;
 using ZenBlog.Domain.Entities;
 
-namespace ZenBlog.Application.Features.Blogs.Results;
+namespace ZenBlog.Application.Features.Blogs.Result;
 
 public class GetBlogsQueryResult: BaseDto
 {

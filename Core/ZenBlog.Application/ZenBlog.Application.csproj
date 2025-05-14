@@ -15,11 +15,16 @@
     <PackageReference Include="FluentValidation" Version="12.0.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
     <PackageReference Include="MediatR" Version="12.5.0" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App"></FrameworkReference>
+	  
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Comments\Commands\" />
+    <Folder Include="Features\Comments\Validators\" />
     <Folder Include="Features\Users\Queries\" />
-    <Folder Include="Features\Users\Results\" />
   </ItemGroup>
+
+    
 
 </Project>

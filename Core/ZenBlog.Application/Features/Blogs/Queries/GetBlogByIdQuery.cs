@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MediatR;
+﻿using MediatR;
 using ZenBlog.Application.Base;
-using ZenBlog.Application.Features.Blogs.Results;
+using ZenBlog.Application.Features.Blogs.Result;
 
 namespace ZenBlog.Application.Features.Blogs.Queries
 {

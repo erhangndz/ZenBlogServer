@@ -3,7 +3,7 @@ using MediatR;
 using ZenBlog.Application.Base;
 using ZenBlog.Application.Contracts.Persistence;
 using ZenBlog.Application.Features.Blogs.Queries;
-using ZenBlog.Application.Features.Blogs.Results;
+using ZenBlog.Application.Features.Blogs.Result;
 using ZenBlog.Domain.Entities;
 
 namespace ZenBlog.Application.Features.Blogs.Handlers

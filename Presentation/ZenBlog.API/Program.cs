@@ -1,6 +1,6 @@
 using Scalar.AspNetCore;
 using ZenBlog.API.CustomMiddlewares;
-using ZenBlog.API.Endpoints.Registration;
+using ZenBlog.API.EndpointRegistration;
 using ZenBlog.Application.Extensions;
 using ZenBlog.Persistence.Extensions;
 

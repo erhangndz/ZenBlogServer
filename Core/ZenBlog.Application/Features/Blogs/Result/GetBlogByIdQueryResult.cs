@@ -1,11 +1,10 @@
 ﻿using ZenBlog.Application.Base;
-using ZenBlog.Application.Features.Categories.Results;
+using ZenBlog.Application.Features.Categories.Result;
 
-namespace ZenBlog.Application.Features.Blogs.Results
+namespace ZenBlog.Application.Features.Blogs.Result
 {
-    public class GetBlogsByCategoryIdQueryResult
+    public class GetBlogByIdQueryResult: BaseDto
     {
-        public Guid Id { get; set; }
         public string Title { get; set; }
         public string CoverImage { get; set; }
         public string BlogImage { get; set; }

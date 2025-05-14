@@ -1,8 +1,11 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
 using ZenBlog.Application.Features.Blogs.Commands;
 using ZenBlog.Application.Features.Blogs.Queries;
 
-namespace ZenBlog.API.Endpoints
+namespace ZenBlog.Application.Features.Blogs.Endpoints
 {
     public static class BlogEndpoints
     {
