@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using ZenBlog.Application.Features.Comments.Commands;
 using ZenBlog.Application.Features.Comments.Queries;
 
 namespace ZenBlog.Application.Features.Comments.Endpoints
@@ -19,6 +20,13 @@ namespace ZenBlog.Application.Features.Comments.Endpoints
                    var response = await _mediator.Send(new GetCommentsQuery());
                    return response.IsSuccess ? Results.Ok(response) : Results.BadRequest(response);
                });
+
+            comments.MapPost("",
+                async (CreateCommentCommand command,IMediator _mediator) =>
+                {
+                    var response = await _mediator.Send(command);
+                    return response.IsSuccess ? Results.Ok(response) : Results.BadRequest(response);
+                });
         }
 
     }

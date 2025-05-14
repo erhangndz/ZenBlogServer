@@ -20,8 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Comments\Commands\" />
-    <Folder Include="Features\Comments\Validators\" />
     <Folder Include="Features\Users\Queries\" />
   </ItemGroup>
 
