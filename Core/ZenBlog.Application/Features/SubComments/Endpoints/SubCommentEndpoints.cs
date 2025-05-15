@@ -27,6 +27,13 @@ namespace ZenBlog.Application.Features.SubComments.Endpoints
                     var response = await _mediator.Send(new GetSubCommentsQuery());
                     return response.IsSuccess ? Results.Ok(response) : Results.BadRequest(response);
                 });
+
+            subComments.MapGet("{id}",
+                async (Guid id,IMediator _mediator) =>
+                {
+                    var response = await _mediator.Send(new GetSubCommentByIdQuery(id));
+                    return response.IsSuccess ? Results.Ok(response) : Results.BadRequest(response);
+                });
         }
 
     }

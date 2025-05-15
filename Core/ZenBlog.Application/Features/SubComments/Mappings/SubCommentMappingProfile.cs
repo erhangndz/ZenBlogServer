@@ -11,6 +11,7 @@ namespace ZenBlog.Application.Features.SubComments.Mappings
         {
             CreateMap<SubComment, CreateSubCommentCommand>().ReverseMap();
             CreateMap<SubComment, GetSubCommentsQueryResult>().ReverseMap();
+            CreateMap<SubComment, GetSubCommentByIdQueryResult>().ReverseMap();
         }
     }
 }
