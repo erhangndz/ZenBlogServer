@@ -20,7 +20,7 @@ namespace ZenBlog.Application.Features.Blogs.Endpoints
                     var response = await mediator.Send(new GetBlogsQuery());
 
                     return response.IsSuccess ? Results.Ok(response) : Results.BadRequest(response);
-                });
+                }).RequireAuthorization();
 
 
             blogs.MapPost(string.Empty, 
