@@ -12,7 +12,7 @@ namespace ZenBlog.Application.Features.Users.Endpoints
 
         public static void RegisterUserEndpoints(this IEndpointRouteBuilder app)
         {
-            var users = app.MapGroup("/users").WithTags("Users");
+            var users = app.MapGroup("/users").WithTags("Users").AllowAnonymous();
 
             users.MapPost("register",
                 async (IMediator mediator, CreateUserCommand command) =>
