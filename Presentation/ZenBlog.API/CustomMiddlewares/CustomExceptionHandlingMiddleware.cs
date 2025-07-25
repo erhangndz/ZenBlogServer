@@ -21,14 +21,18 @@ namespace ZenBlog.API.CustomMiddlewares
                 var response = new BaseResult<object>()
                 {
                     Errors = ex.Errors.GroupBy(x => x.PropertyName)
-                        .Select(x => new Error()
+                        .Select(group => new Dictionary<string, string>
                         {
-                            PropertyName = x.Key,
-                            ErrorMessage = x.Select(x => x.ErrorMessage).FirstOrDefault()
-                        }).ToList()
+                            {group.Key,
+                            group.Select(x=>x.ErrorMessage).FirstOrDefault()
+                            }
+                        }
+                        ).ToList()
                 };
 
                 await context.Response.WriteAsJsonAsync(response);
+
+                
             }
 
             catch (Exception ex)
