@@ -5,7 +5,7 @@ using ZenBlog.Application.Features.Users.Result;
 
 namespace ZenBlog.Application.Features.Blogs.Result
 {
-    public class GetBlogByIdQueryResult: BaseDto
+    public class GetLatest5BlogsQueryResult: BaseDto
     {
         public string Title { get; set; }
         public string CoverImage { get; set; }
@@ -15,6 +15,6 @@ namespace ZenBlog.Application.Features.Blogs.Result
         public GetCategoryQueryResult Category { get; set; }
         public string UserId { get; set; }
         public GetUsersQueryResult User { get; set; }
-        public  IList<GetCommentsQueryResult> Comments { get; set; }
+        public IList<GetCommentsQueryResult> Comments { get; set; }
     }
 }

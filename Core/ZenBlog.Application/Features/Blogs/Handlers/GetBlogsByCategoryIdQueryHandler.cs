@@ -12,6 +12,9 @@ namespace ZenBlog.Application.Features.Blogs.Handlers
     {
         public async Task<BaseResult<List<GetBlogsByCategoryIdQueryResult>>> Handle(GetBlogsByCategoryIdQuery request, CancellationToken cancellationToken)
         {
+            return await Task.Run(() =>
+            {
+
             var query = _repository.GetQuery();
 
             var values = query.Where(x => x.CategoryId == request.CategoryId).ToList();
@@ -19,6 +22,7 @@ namespace ZenBlog.Application.Features.Blogs.Handlers
             var blogs = _mapper.Map<List<GetBlogsByCategoryIdQueryResult>>(values);
 
             return BaseResult<List<GetBlogsByCategoryIdQueryResult>>.Success(blogs);
+            });
         }
     }
 }

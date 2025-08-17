@@ -12,7 +12,7 @@ using ZenBlog.Domain.Entities;
 
 namespace ZenBlog.Application.Features.ContactInfos.Handlers
 {
-    public class RemoveContactInfoCommandHandler(IRepository<ContactInfo> repository, IMapper mapper, IUnitOfWork unitOfWork) : IRequestHandler<RemoveContactInfoCommand, BaseResult<object>>
+    public class RemoveContactInfoCommandHandler(IRepository<ContactInfo> repository, IUnitOfWork unitOfWork) : IRequestHandler<RemoveContactInfoCommand, BaseResult<object>>
     {
         public async Task<BaseResult<object>> Handle(RemoveContactInfoCommand request, CancellationToken cancellationToken)
         {

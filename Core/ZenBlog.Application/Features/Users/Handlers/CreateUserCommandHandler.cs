@@ -7,7 +7,7 @@ using ZenBlog.Domain.Entities;
 
 namespace ZenBlog.Application.Features.Users.Handlers
 {
-    public class CreateUserCommandHandler(UserManager<AppUser> _userManager, IMapper _mapper) : IRequestHandler<CreateUserCommand, BaseResult<object>>
+    public class CreateUserCommandHandler(UserManager<AppUser> _userManager) : IRequestHandler<CreateUserCommand, BaseResult<object>>
     {
         public async Task<BaseResult<object>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {

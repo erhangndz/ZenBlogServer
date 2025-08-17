@@ -43,4 +43,9 @@ public class GenericRepository<TEntity>(AppDbContext _context) : IRepository<TEn
     {
         _context.Remove(entity);
     }
+
+    public async Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> filter)
+    {
+        return await _table.AsNoTracking().Where(filter).ToListAsync();
+    }
 }

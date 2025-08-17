@@ -1,4 +1,5 @@
 using Scalar.AspNetCore;
+using System.Text.Json.Serialization;
 using ZenBlog.API.CustomMiddlewares;
 using ZenBlog.API.EndpointRegistration;
 using ZenBlog.Application.Extensions;
@@ -23,6 +24,22 @@ builder.Services.AddCors(opt =>
 });
 
 builder.Services.AddControllers();
+//1. Yöntem Ignore Cycle JsonSerializer Options 
+//builder.Services.AddControllers().AddJsonOptions(config =>
+//{
+//    config.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+//});
+
+//2. Yöntem Minimal Api kullanýmýnda Ignore Cycle yöntemi
+
+builder.Services.ConfigureHttpJsonOptions(config =>
+{
+    config.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
+    
+    
+    
+    
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
