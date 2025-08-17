@@ -7,7 +7,9 @@ namespace ZenBlog.Application.Features.SubComments.Commands
 {
     public record CreateSubCommentCommand: IRequest<BaseResult<object>>
     {
-        public string UserId { get; init; }
+        public string FirstName { get; init; }
+        public string LastName { get; init; }
+        public string Email { get; init; }
         public string Body { get; init; }
         [JsonIgnore]
         public DateTime CommentDate { get; init; }= DateTime.Now;

@@ -6,8 +6,9 @@ namespace ZenBlog.Application.Features.SubComments.Result
 {
     public class GetSubCommentsQueryResult: BaseDto
     {
-        public string UserId { get; set; }
-        public GetUsersQueryResult User { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
         public string Body { get; set; }
         public DateTime CommentDate { get; set; }
         public Guid CommentId { get; set; }

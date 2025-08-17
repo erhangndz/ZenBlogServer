@@ -4,8 +4,9 @@ namespace ZenBlog.Domain.Entities
 {
     public class Comment: BaseEntity
     {
-        public string UserId { get; set; }
-        public virtual AppUser User { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
         public string Body { get; set; }
         public DateTime CommentDate { get; set; }
         public virtual IList<SubComment> SubComments { get; set; }
