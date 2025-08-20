@@ -29,7 +29,7 @@ namespace ZenBlog.Application.Features.Socials.Endpoints
             {
                 var result = await mediator.Send(new GetSocialsQuery());
                 return result.IsSuccess ? Results.Ok(result) : Results.BadRequest(result);
-            });
+            }).AllowAnonymous();
 
             socials.MapGet("/{id}", async (Guid id, IMediator mediator) =>
             {

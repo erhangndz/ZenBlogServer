@@ -20,7 +20,7 @@ namespace ZenBlog.Application.Features.Blogs.Endpoints
                     var response = await mediator.Send(new GetBlogsQuery());
 
                     return response.IsSuccess ? Results.Ok(response) : Results.BadRequest(response);
-                });
+                }).AllowAnonymous();
 
             blogs.MapGet("Latest5Blogs",
                 async (IMediator mediator) =>
@@ -28,7 +28,7 @@ namespace ZenBlog.Application.Features.Blogs.Endpoints
                     var response = await mediator.Send(new GetLatest5BlogsQuery());
 
                     return response.IsSuccess ? Results.Ok(response) : Results.BadRequest(response);
-                });
+                }).AllowAnonymous();
 
 
             blogs.MapPost(string.Empty, 
@@ -44,7 +44,7 @@ namespace ZenBlog.Application.Features.Blogs.Endpoints
                 {
                     var response = await mediator.Send(new GetBlogByIdQuery(id));
                     return response.IsSuccess ? Results.Ok(response) : Results.BadRequest(response);
-                });
+                }).AllowAnonymous();
 
             blogs.MapPut(string.Empty,
                 async (UpdateBlogCommand command, IMediator mediator) =>

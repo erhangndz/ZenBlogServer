@@ -19,7 +19,7 @@ namespace ZenBlog.Application.Features.SubComments.Endpoints
                {
                    var response = await _mediator.Send(command);
                    return response.IsSuccess ? Results.Ok(response) : Results.BadRequest(response);
-               });
+               }).AllowAnonymous();
 
             subComments.MapGet("",
                 async (IMediator _mediator) =>

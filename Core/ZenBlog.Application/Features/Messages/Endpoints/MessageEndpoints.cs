@@ -19,7 +19,7 @@ namespace ZenBlog.Application.Features.Messages.Endpoints
             {
                 var result = await mediator.Send(command);
                 return result.IsSuccess ? Results.Ok(result) : Results.BadRequest(result);
-            });
+            }).AllowAnonymous();
 
             messages.MapGet("/", async (IMediator mediator) =>
             {
