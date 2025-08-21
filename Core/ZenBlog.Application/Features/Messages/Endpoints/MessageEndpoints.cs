@@ -27,6 +27,18 @@ namespace ZenBlog.Application.Features.Messages.Endpoints
                 return result.IsSuccess ? Results.Ok(result) : Results.BadRequest(result);
             });
 
+            messages.MapGet("Unread", async (IMediator mediator) =>
+            {
+                var result = await mediator.Send(new GetUnreadMessagesQuery());
+                return result.IsSuccess ? Results.Ok(result) : Results.BadRequest(result);
+            });
+
+            messages.MapGet("read", async (IMediator mediator) =>
+            {
+                var result = await mediator.Send(new GetReadMessagesQuery());
+                return result.IsSuccess ? Results.Ok(result) : Results.BadRequest(result);
+            });
+
             messages.MapGet("/{id}", async (Guid id, IMediator mediator) =>
             {
                 var result = await mediator.Send(new GetMessageByIdQuery(id));
